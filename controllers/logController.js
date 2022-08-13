@@ -19,7 +19,8 @@ exports.createlog = async (user,message)=>{
 exports.createtext = async (message)=>{
   let date = new Date()
   const getdate = `${date.getFullYear()}${date.getMonth()+1}${date.getDate()}`
-  fs.appendFile(`./logs/Log_${getdate}.txt`, `${message}\n`, function(err, file){
+  const getdatetime = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+  fs.appendFile(`./logs/Log_${getdate}.txt`, `${getdatetime} : ${message}\n`, function(err, file){
     if (err) throw err
     console.log('Text Saved!!')
   })
